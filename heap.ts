@@ -39,6 +39,28 @@ class Heap {
 
     // percolating down
 
+    this.percolateDown(currentIndex);
+
+    return poppedEl;
+  }
+
+  heapify(arr: number[]) {
+    arr.push(arr[0]);
+
+    this.heap = arr;
+
+    let currentNodeIndex = Math.floor((this.heap.length - 1) / 2);
+
+    while (currentNodeIndex > 0) {
+      let currentIndex = currentNodeIndex;
+
+      this.percolateDown(currentIndex);
+
+      currentNodeIndex -= 1;
+    }
+  }
+
+  private percolateDown(currentIndex: number) {
     while (currentIndex * 2 < this.heap.length) {
       // while there is a left child
       if (
@@ -63,20 +85,21 @@ class Heap {
         currentIndex = currentIndex * 2;
       } else break;
     }
-
-    return poppedEl;
   }
 }
 
 const heap = new Heap();
-heap.push(14);
-heap.push(19);
-heap.push(16);
-heap.push(21);
-heap.push(26);
-heap.push(19);
-heap.push(68);
-heap.push(65);
-heap.push(30);
-console.log(heap.pop());
+// heap.push(14);
+// heap.push(19);
+// heap.push(16);
+// heap.push(21);
+// heap.push(26);
+// heap.push(19);
+// heap.push(68);
+// heap.push(65);
+// heap.push(30);
+// console.log(heap.pop());
+// console.log(heap);
+
+console.log(heap.heapify([60, 50, 80, 40, 30, 10, 70, 20, 90]));
 console.log(heap);
