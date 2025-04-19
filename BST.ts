@@ -40,7 +40,7 @@ class BST {
     return this.bstImp(this.root);
   }
 
-  bstImp(root: TreeNode) {
+  private bstImp(root: TreeNode) {
     const queue: TreeNode[] = [];
 
     queue.push(root);

@@ -1,5 +1,4 @@
 function fibonacci(n: number) {
-  if (n < 0) return 0;
   if (n === 0) return 0;
   if (n === 1) return 1;
 
@@ -9,7 +8,6 @@ function fibonacci(n: number) {
 const cache: Record<number, number> = {};
 
 function fibonacciMemoized(n: number) {
-  if (n < 0) return 0;
   if (n === 0) return 0;
   if (n === 1) return 1;
 
@@ -19,9 +17,9 @@ function fibonacciMemoized(n: number) {
   return cache[n];
 }
 
-// console.time("fibonacci");
-// console.log(fibonacci(50));
-// console.timeEnd("fibonacci");
+console.time("fibonacci");
+console.log(fibonacci(50));
+console.timeEnd("fibonacci");
 
 // fibonacci: 1:38.321 (m:ss.mmm)
 

@@ -1,19 +1,23 @@
-class TreeNode {
-  value: number;
-  left: TreeNode | null;
-  right: TreeNode | null;
-  constructor(val: number, left: TreeNode | null, right: TreeNode | null) {
-    this.value = val;
-    this.left = left;
-    this.right = right;
-  }
-}
+// class TreeNode {
+//   value: number;
+//   left: TreeNode | undefined;
+//   right: TreeNode | undefined;
+//   constructor(
+//     val: number,
+//     left: TreeNode | undefined,
+//     right: TreeNode | undefined,
+//   ) {
+//     this.value = val;
+//     this.left = left;
+//     this.right = right;
+//   }
+// }
 
-const sixNode = new TreeNode(6, null, null);
-const fourNode = new TreeNode(4, null, sixNode);
+const sixNode = new TreeNode(6, undefined, undefined);
+const fourNode2 = new TreeNode(4, undefined, sixNode);
 
-function insert(root, val) {
-  if (!root) return new TreeNode(val, null, null);
+function insert(root: TreeNode | undefined, val: number) {
+  if (!root) return new TreeNode(val, undefined, undefined);
 
   if (val > root.value) {
     root.right = insert(root.right, val);
@@ -24,9 +28,9 @@ function insert(root, val) {
   return root;
 }
 
-console.log(insert(fourNode, 5));
+console.log(insert(fourNode2, 5));
 
-function findMinValueNode(root: TreeNode | null) {
+function findMinValueNode(root: TreeNode | undefined) {
   let currentMinimumNode = root;
 
   while (currentMinimumNode?.left) {
@@ -36,4 +40,4 @@ function findMinValueNode(root: TreeNode | null) {
   return currentMinimumNode;
 }
 
-console.log(findMinValueNode(fourNode));
+console.log(findMinValueNode(fourNode2));

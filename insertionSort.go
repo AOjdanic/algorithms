@@ -4,7 +4,7 @@ import "fmt"
 
 func insertionSort(arr []int) []int {
 
-	for i := 0; i < len(arr); i++ {
+	for i := range arr {
 		j := i - 1
 
 		for j >= 0 && arr[j] > arr[j+1] {
